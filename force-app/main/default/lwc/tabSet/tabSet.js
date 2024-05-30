@@ -25,6 +25,7 @@ export default class TabSet extends LightningElement {
                     ariaControls,
                     key: tab.name,
                     name: tab.name,
+                    iconName: tab.iconName,
                     ariaSelected: selected,
                     label,
                     tabIndex: selected ? 0 : -1,
@@ -50,14 +51,8 @@ export default class TabSet extends LightningElement {
     handleTabClick(event) {
         const name = event.target.name;
         this.querySelectorAll('c-tab').forEach((tab) => {
-            if (tab.name === name) {
-                if (tab.selected) {
-                    // eslint-disable-next-line no-useless-return
-                    return;
-                    // eslint-disable-next-line no-else-return
-                } else {
-                    tab.selected = true;
-                }
+            if (tab.name === name && !tab.selected) {
+                tab.selected = true;
             } else if (tab.selected) {
                 tab.selected = false;
             }

@@ -17,7 +17,16 @@
                     aria-selected={tab.ariaSelected}
                     aria-controls={tab.ariaControls}
                 >
-                    {tab.label}
+                    <template lwc:if={tab.iconName}>
+                        <span class="slds-tabs__left-icon">
+                            <lightning-icon
+                                icon-name={tab.iconName}
+                                size="small"
+                                alternative-text={tab.label}
+                            ></lightning-icon>
+                        </span>
+                    </template>
+                    <span>{tab.label}</span>
                 </a>
             </li>
         </template>

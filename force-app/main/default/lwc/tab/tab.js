@@ -3,11 +3,11 @@ import { LightningElement, api } from 'lwc';
 export default class Tab extends LightningElement {
     @api name;
     @api label;
+    @api iconName;
 
     connectedCallback() {
         this.classList.add('slds-tabs_default__content', 'slds-hide');
         this.role = 'tabpanel';
-        this.ariaSelected = false;
     }
 
     _index;
@@ -28,7 +28,6 @@ export default class Tab extends LightningElement {
     }
     set selected(value) {
         this._selected = value;
-        this.ariaSelected = value;
         if (value) {
             this.classList.add('slds-show');
             this.classList.remove('slds-hide');
