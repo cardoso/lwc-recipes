@@ -1,0 +1,26 @@
+<template>
+    <ul class="slds-tabs_default__nav" role="tablist">
+        <template for:each={tabs} for:item="tab">
+            <li
+                key={tab.key}
+                class={tab.className}
+                title={tab.label}
+                role="presentation"
+            >
+                <a
+                    id={tab.id}
+                    name={tab.name}
+                    class="slds-tabs_default__link"
+                    onclick={handleTabClick}
+                    role="tab"
+                    tabindex={tab.tabIndex}
+                    aria-selected={tab.ariaSelected}
+                    aria-controls={tab.ariaControls}
+                >
+                    {tab.label}
+                </a>
+            </li>
+        </template>
+    </ul>
+    <slot onslotchange={handleSlotChange}></slot>
+</template>
