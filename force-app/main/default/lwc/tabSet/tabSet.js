@@ -17,9 +17,7 @@ export default class TabSet extends LightningElement {
                 const selected = tab.selected;
                 const label = tab.label ?? tab.name;
                 const ariaControls = `tab-default-${index + 1}`;
-
                 tab.index = index;
-
                 return {
                     id: `${ariaControls}__item`,
                     ariaControls,
@@ -49,13 +47,9 @@ export default class TabSet extends LightningElement {
      * @param {CustomEvent} event
      */
     handleTabClick(event) {
-        const name = event.target.name;
+        const name = event.currentTarget.name;
         this.querySelectorAll('c-tab').forEach((tab) => {
-            if (tab.name === name && !tab.selected) {
-                tab.selected = true;
-            } else if (tab.selected) {
-                tab.selected = false;
-            }
+            tab.selected = tab.name === name;
         });
         this.updateTabs();
     }

@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 # VS Code project settings
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 
 # Local environment variables/config
 .env

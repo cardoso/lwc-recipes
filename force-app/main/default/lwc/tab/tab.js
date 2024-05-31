@@ -1,9 +1,17 @@
 import { LightningElement, api } from 'lwc';
 
 export default class Tab extends LightningElement {
-    @api name;
     @api label;
     @api iconName;
+
+    _name;
+    @api get name() {
+        return this._name;
+    }
+    set name(value) {
+        this._name = value;
+        this.setAttribute('name', value);
+    }
 
     connectedCallback() {
         this.classList.add('slds-tabs_default__content', 'slds-hide');
